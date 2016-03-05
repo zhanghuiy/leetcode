@@ -31,7 +31,7 @@ public class Solution {
             }else{
                 // nums[mid] == nums[low]
                 // discard nums[low], because nums[mid] has the same value.
-                // the worst time complexity could be O(n)
+                // the worst time complexity could be O(n) 
                 low ++;
             }
         }

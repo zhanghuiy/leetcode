@@ -24,18 +24,9 @@ public class Solution {
 
     // O(n) time complexity, the best one is under O(log n)
     public int search_2(int[] nums, int target) {
-        // O(n)
-        int pivot = 1;
-        for(; pivot < nums.length; pivot++){
-            if(nums[pivot] < nums[pivot-1])break;
+        for(int i = 0; i < nums.length; i++){
+          if(nums[i] == target) return i;
         }
-        pivot --;
-
-        // Binary search in intervals [0,pivot] and (pivot, nums.length)
-        int position = binarySearch(nums, 0, pivot, target);
-        if(position != -1) return position;
-        position = binarySearch(nums, pivot+1, nums.length-1, target);
-        if(position != -1) return position;
         return -1;
     }
 

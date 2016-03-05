@@ -1,7 +1,46 @@
 public class Solution {
 
-    // O(log n) time complexity
+
+    // a even better solution, no need to search for pivot.
     public int search(int[] nums, int target) {
+        int low = 0;
+        int high = nums.length - 1;
+        int mid = 0;
+        while(low <= high){
+            mid = low + (high - low) / 2;
+            if(nums[mid] >= nums[low]){
+                // left partition
+                if(nums[mid] < target){
+                    low = mid + 1;
+                }else if(nums[mid] > target){
+                    if(nums[low] <= target){
+                        high = mid - 1;
+                    }else{
+                        low = mid + 1;
+                    }
+                }else{
+                    return mid;
+                }
+            }else if(nums[mid] < nums[low]){
+                // right partition
+                if(nums[mid] < target){
+                    if(nums[high] >= target){
+                        low = mid + 1;
+                    }else{
+                        high = mid - 1;
+                    }
+                }else if(nums[mid] > target){
+                    high = mid - 1;
+                }else{
+                    return mid;
+                }
+            }
+        }
+        return -1;
+    }
+
+    // O(log n) time complexity
+    public int search_2(int[] nums, int target) {
 
         // find the pivot under O(log n)
         int low = 0, high = nums.length - 1, mid = 0;
@@ -23,7 +62,7 @@ public class Solution {
 
 
     // O(n) time complexity, the best one is under O(log n)
-    public int search_2(int[] nums, int target) {
+    public int search_3(int[] nums, int target) {
         for(int i = 0; i < nums.length; i++){
           if(nums[i] == target) return i;
         }

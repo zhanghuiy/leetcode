@@ -1,2 +1,2 @@
 # leetcode
-My solutions of of problems by Leetcode ⎝(◕u◕)⎠ 
+My solutions of problems by Leetcode ⎝(◕u◕)⎠ 
